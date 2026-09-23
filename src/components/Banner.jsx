@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Banner() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -56,8 +57,9 @@ function Banner() {
                 <p>
                   Discover the latest fashion trends and find your perfect style.
                 </p>
-
-                <button>SHOP NOW</button>
+                <button>
+                <Link className="banner-cta" to="/products">SHOP NOW </Link>
+                </button>
               </div>
 
               <div className="banner-image">

@@ -1,4 +1,14 @@
+import { useState } from "react";
+
 function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubmitted(true);
+    event.currentTarget.reset();
+  };
+
   return (
     <div className="contact-page">
 
@@ -23,7 +33,7 @@ function Contact() {
           </div>
         </div>
 
-        <div className="contact-form">
+        <form className="contact-form" onSubmit={handleSubmit}>
           <h2>Send Us a Message</h2>
 
           <input type="text" placeholder="Your Name" />
@@ -31,8 +41,9 @@ function Contact() {
           <input type="text" placeholder="Subject" />
           <textarea placeholder="Your Message"></textarea>
 
-          <button>Send Message</button>
-        </div>
+          <button type="submit">Send Message</button>
+          {submitted && <p className="form-success">Thanks! We will get back to you soon.</p>}
+        </form>
 
       </section>
 

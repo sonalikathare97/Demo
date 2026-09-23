@@ -132,6 +132,21 @@ button {
   transform: scale(1.1);
 }
 
+.icon-button,
+.search-toggle {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.header-search {
+  width: 150px;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
 /* Main banner */
 .banner {
   width: 100%;
@@ -266,6 +281,21 @@ button {
   background: #f7f7f7;
   border: 1px solid #eee;
   transition: 0.3s;
+  font: inherit;
+  cursor: pointer;
+}
+
+.category-card.selected {
+  border-color: #222;
+  background: #fff;
+}
+
+.category-card span {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #222;
+  color: white;
+  font-size: 13px;
 }
 
 .category-card:hover {
@@ -1245,6 +1275,403 @@ transform: scale(1.03);
     width: 50%;
     height: 350px;
   }
+}
+
+/* =========================
+   STYLEHUB VISUAL SYSTEM
+========================= */
+
+:root {
+  --ink: #1c2421;
+  --muted-ink: #68736d;
+  --paper: #f7f5ef;
+  --white: #fffdf9;
+  --line: #e5e3da;
+  --sage: #647b67;
+  --clay: #c66d4c;
+  --shadow-soft: 0 18px 45px rgba(28, 36, 33, 0.09);
+}
+
+html,
+body,
+#root {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+#root {
+  width: 100%;
+  max-width: 1440px;
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+.logo,
+.footer-logo {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.header {
+  height: 82px;
+  padding: 0 clamp(20px, 6vw, 88px);
+  background: rgba(255, 253, 249, 0.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+}
+
+.logo {
+  color: var(--ink);
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+.logo span {
+  color: var(--clay);
+}
+
+.navbar {
+  gap: 26px;
+}
+
+.navbar > a,
+.dropdown > a {
+  color: var(--muted-ink);
+  font-size: 11px;
+  letter-spacing: 1.6px;
+}
+
+.navbar > a:hover,
+.dropdown > a:hover {
+  color: var(--clay);
+}
+
+.icons {
+  gap: 12px;
+}
+
+.icon-button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 16px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.icon-button:hover {
+  background: #eee9de;
+  transform: translateY(-2px);
+}
+
+.banner {
+  background: var(--ink);
+}
+
+.slide {
+  min-height: 560px;
+  height: min(640px, calc(100vh - 82px));
+  padding: clamp(38px, 7vw, 100px) clamp(24px, 8vw, 120px);
+  background: var(--ink);
+  color: var(--white);
+  gap: 7vw;
+}
+
+.banner-content {
+  width: 43%;
+  position: relative;
+  z-index: 1;
+}
+
+.banner-content::before {
+  content: "NEW SEASON / 2026";
+  display: block;
+  margin-bottom: 24px;
+  color: #d6a28a;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.banner-content h1 {
+  max-width: 580px;
+  margin-bottom: 22px;
+  color: var(--white);
+  font-size: clamp(44px, 6vw, 84px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -2px;
+}
+
+.banner-content p {
+  max-width: 420px;
+  color: #bfc8c0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.banner-cta {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 15px 24px;
+  background: var(--clay);
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.banner-cta:hover {
+  background: #d88360;
+  transform: translateY(-3px);
+}
+
+.banner-image {
+  width: 52%;
+  height: 100%;
+  max-height: 470px;
+  border: 12px solid rgba(255, 253, 249, 0.1);
+  box-shadow: var(--shadow-soft);
+}
+
+.banner-image img {
+  filter: saturate(0.82);
+}
+
+.dots {
+  bottom: 28px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border: 1px solid #c7d0c9;
+  background: transparent;
+}
+
+.dot.active {
+  background: var(--clay);
+  border-color: var(--clay);
+}
+
+.categories,
+.products,
+.why-shop,
+.latest-blogs,
+.why-stylehub {
+  background: var(--paper);
+}
+
+.categories,
+.products {
+  padding: clamp(58px, 8vw, 108px) clamp(20px, 7vw, 96px);
+}
+
+.categories h2,
+.products h2,
+.why-shop h2,
+.latest-blogs h2,
+.why-stylehub > h2 {
+  color: var(--ink);
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+.categories h2::after,
+.products h2::after {
+  content: ".";
+  color: var(--clay);
+}
+
+.category-container {
+  gap: 12px;
+}
+
+.category-card {
+  min-height: 170px;
+  padding: 28px 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 249, 0.65);
+  color: var(--ink);
+  text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover,
+.category-card.selected {
+  border-color: var(--sage);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-5px);
+}
+
+.category-card h3 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.category-card p {
+  color: var(--muted-ink);
+  font-size: 13px;
+}
+
+.category-card span {
+  padding: 0;
+  background: transparent;
+  color: var(--clay);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.product-container,
+.blog-container,
+.benefits {
+  gap: 18px;
+}
+
+.product-card,
+.blog-card,
+.benefit-card,
+.feature-card {
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover,
+.blog-card:hover,
+.benefit-card:hover,
+.feature-card:hover {
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-6px);
+}
+
+.product-card img {
+  height: 340px;
+  filter: saturate(0.88);
+}
+
+.product-card small {
+  display: block;
+  margin: 18px 20px 0;
+  color: var(--clay);
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.product-card h3 {
+  margin: 7px 20px 8px;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.product-card p {
+  margin: 0 20px 18px;
+  color: var(--sage);
+  text-align: left;
+}
+
+.product-card button,
+.blog-content button,
+.contact-form button {
+  border: 0;
+  background: var(--ink);
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.product-card button:hover,
+.blog-content button:hover,
+.contact-form button:hover {
+  background: var(--clay);
+  transform: translateY(-2px);
+}
+
+.footer {
+  background: var(--ink);
+}
+
+.footer-logo span {
+  color: #d88360;
+}
+
+.about-hero,
+.blog-hero,
+.contact-hero {
+  background: #e7ebe3;
+}
+
+.about-hero h1,
+.blog-hero h1,
+.contact-hero h1 {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+.small-title {
+  color: var(--clay);
+  letter-spacing: 2px;
+}
+
+.story-image img {
+  border-radius: 0;
+}
+
+.contact-form {
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-success {
+  color: var(--sage);
+  font-size: 13px;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    height: 70px;
+  }
+
+  .slide {
+    height: 650px;
+    min-height: 0;
+    padding: 44px 22px 58px;
+  }
+
+  .banner-content,
+  .banner-image {
+    width: 100%;
+  }
+
+  .banner-content h1 {
+    font-size: 48px;
+  }
+
+  .banner-image {
+    height: 260px;
+    border-width: 7px;
+  }
+
+  .category-card {
+    min-height: 130px;
+  }
+
+  .product-card img {
+    height: 330px;
+  }
+
 }
 
 
